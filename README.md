@@ -2,9 +2,9 @@
 
 A simple website that brings weather information about a state/country.
 Project made with the intention of learning Vuejs
-
-<img alt="Screenshot of running project." src="/public/app.PNG" />
-
+<p align="center">
+    <img alt="Screenshot of running project." src="/public/app.PNG" />
+</p>
 <p align="center">
     <img alt="Vuejs" src="https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" />
     <img alt="Tailwind" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
