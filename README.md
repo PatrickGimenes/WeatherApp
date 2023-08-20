@@ -1,13 +1,14 @@
 # WeatherApp
 
-A simple website that brings weather information about a country or state
+A simple website that brings weather information about a state/country.
+Project made with the intention of learning Vuejs
 
 <img alt="Screenshot of running project." src="/public/app.PNG" />
 
-<img alt="Vuejs" src="https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" />
-<img alt="Tailwind" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-
-
+<p align="center">
+    <img alt="Vuejs" src="https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" />
+    <img alt="Tailwind" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+</p>
 
 ### Project Status
 
@@ -38,16 +39,17 @@ Go to src folder and open App.vue file and add your API KEY
 ### Technologies used
 
 This project was developed using:
-    - Vuejs
-    - Axios
-    - Tailwind Css
-    - Openweather API
+* Vuejs
+* Axios
+* Tailwind Css
+* Openweather API
 
 ### Todo
 
 - [ ] Add tests
 - [ ] Add error handling when fetching country/state
 - [ ] Add images according to the weather
+- [ ] Create components
 
 ### Contributing
 
