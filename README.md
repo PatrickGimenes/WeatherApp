@@ -2,10 +2,10 @@
 
 A simple website that brings weather information about a country or state
 
-<img alt="Screenshot of running project." src="/public/app.png" />
+<img alt="Screenshot of running project." src="/public/app.PNG" />
 
-<img alt="Vuejs" src="[/public/app.png](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)" />
-<img alt="Tailwind" src="[/public/app.png](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)" />
+<img alt="Vuejs" src="https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" />
+<img alt="Tailwind" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
 
 
 
@@ -38,10 +38,10 @@ Go to src folder and open App.vue file and add your API KEY
 ### Technologies used
 
 This project was developed using:
-    * Vuejs
-    * Axios
-    * Tailwind Css
-    * Openweather API
+    - Vuejs
+    - Axios
+    - Tailwind Css
+    - Openweather API
 
 ### Todo
 
