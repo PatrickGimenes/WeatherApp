@@ -48,7 +48,7 @@ export default {
         'few clouds': 'poucas nuvens',
         'scattered clouds': 'nuvens dispersas',
         'broken clouds': 'nuvens quebradas',
-        'overcast clouds': 'nuvem pra caralho',
+        'overcast clouds': 'nuvens encobertas',
         'light rain': 'chuvinha fraquinha',
         'moderate rain': 'chuvinha moderada',
         'heavy rain': 'chuva intensa',
