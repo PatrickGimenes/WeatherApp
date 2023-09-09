@@ -38,7 +38,7 @@ export default {
       weather: 'Digite a cidade',
       humidity: '0',
       wind: '0',
-      api: 'b77e07f479efe92156376a8b07640ced'
+      api: ''
     }
   },
   methods: {
