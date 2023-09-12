@@ -78,11 +78,6 @@ export default {
         .get(
           `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=${api}`
         )
-        .catch(function (error) {
-          if (error.response) {
-            console.log(error.response.status);
-          }
-        })
         .then((response) => {
           const weatherData = response.data;
           this.temperature = weatherData.main.temp;
@@ -91,7 +86,15 @@ export default {
           );
           this.humidity = weatherData.main.humidity;
           this.wind = weatherData.wind.speed;
-        });
+        })
+        .catch(
+          (error) => (
+            (this.weather = error.message),
+            (this.temperature = 0),
+            (this.humidity = 0),
+            (this.wind = 0)
+          )
+        );
     },
   },
 
