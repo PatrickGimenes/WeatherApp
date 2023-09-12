@@ -34,7 +34,7 @@ const api = import.meta.env.VITE_API_KEY;
 export default {
   data() {
     return {
-      city: null,
+      city: 'brazil',
       temperature: '0',
       weather: 'Digite a cidade',
       humidity: '0',
