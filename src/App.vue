@@ -29,16 +29,16 @@
 
 <script >
 import axios from 'axios'
+const api = import.meta.env.VITE_API_KEY;
 
 export default {
   data() {
     return {
-      city: null,
+      city: 'brazil',
       temperature: '0',
       weather: 'Digite a cidade',
       humidity: '0',
       wind: '0',
-      api: ''
     }
   },
   methods: {
@@ -58,7 +58,7 @@ export default {
     },
 
     fetchData() {
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=${this.api}`)
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=${api}`)
         .then((response) => {
           const weatherData = response.data;
           this.temperature = weatherData.main.temp;
