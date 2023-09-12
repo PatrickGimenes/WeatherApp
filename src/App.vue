@@ -80,7 +80,7 @@ export default {
         )
         .then((response) => {
           const weatherData = response.data;
-          this.temperature = weatherData.main.temp;
+          this.temperature = weatherData.main.temp.toFixed(0);
           this.weather = this.translateWeatherDescription(
             weatherData.weather[0].description
           );
