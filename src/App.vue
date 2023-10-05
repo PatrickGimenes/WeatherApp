@@ -27,51 +27,52 @@
 </template>
 
 
-<script >
-import axios from 'axios'
+<script>
+import axios from 'axios';
 
 export default {
   data() {
     return {
-      city: null,
-      temperature: '0',
-      weather: 'Digite a cidade',
-      humidity: '0',
-      wind: '0',
-      api: ''
-    }
+      city: 'Digite a cidade',
+      temperature: 0,
+      weather: 'Desconhecido',
+      humidity: 0,
+      wind: 0,
+      api: '',
+    };
   },
   methods: {
+    async fetchData() {
+      try {
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=${this.api}`);
+        const weatherData = response.data;
+        const description = weatherData.weather[0].description;
+
+        this.city = weatherData.name;
+        this.temperature = weatherData.main.temp;
+        this.weather = this.translateWeatherDescription(description);
+        this.humidity = weatherData.main.humidity;
+        this.wind = weatherData.wind.speed;
+      } catch (error) {
+        console.error('Erro ao buscar dados meteorológicos:', error);
+      }
+    },
     translateWeatherDescription(description) {
       const translations = {
-        'clear sky': 'céu limpo',
-        'few clouds': 'poucas nuvens',
-        'scattered clouds': 'nuvens dispersas',
-        'broken clouds': 'nuvens quebradas',
-        'overcast clouds': 'nuvem pra caralho',
-        'light rain': 'chuvinha fraquinha',
-        'moderate rain': 'chuvinha moderada',
-        'heavy rain': 'chuva intensa',
+        'clear sky': 'Céu limpo',
+        'few clouds': 'Poucas nuvens',
+        'scattered clouds': 'Nuvens dispersas',
+        'broken clouds': 'Nuvens quebradas',
+        'overcast clouds': 'Muita nuvem',
+        'light rain': 'Chuva fraca',
+        'moderate rain': 'Chuva moderada',
+        'heavy rain': 'Chuva intensa',
       };
-
       return translations[description] || description;
     },
-
-    fetchData() {
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=${this.api}`)
-        .then((response) => {
-          const weatherData = response.data;
-          this.temperature = weatherData.main.temp;
-          this.weather = this.translateWeatherDescription(weatherData.weather[0].description);
-          this.humidity = weatherData.main.humidity;
-          this.wind = weatherData.wind.speed;
-        })
-    },
   },
-
-  mounted() {
-    this.fetchData();
+  async mounted() {
+    await this.fetchData();
   },
 };
 </script>
-
