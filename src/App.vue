@@ -3,6 +3,13 @@
     class="relative w-full h-full bg-slate-200 p-7 overflow-hidden rounded-2xl font-serif"
   >
     <div class="w-full h-min flex items-center justify-between">
+
+      <font-awesome-icon icon="fa-solid fa-location-dot" class="absolute text-slate-900 text-2xl pl-1" />
+      <input v-model="city"
+        class="text-slate-900 w-4/5 text-2xl font-medium pl-8 rounded-md placeholder:text-xl placeholder:capitalize"
+        type="text" placeholder="Digite sua localização" />
+      <button @click="fetchData" class="cursor-pointer w-10 h-10 bg-slate-300 rounded-xl text-lg hover:bg-slate-900 ">
+
       <font-awesome-icon
         icon="fa-solid fa-location-dot"
         class="absolute text-slate-900 text-2xl pl-1"
@@ -17,6 +24,7 @@
         @click="fetchData"
         class="cursor-pointer w-10 h-10 bg-slate-300 rounded-xl text-lg hover:bg-slate-900"
       >
+
         <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
       </button>
     </div>
@@ -36,8 +44,22 @@
         <p class="text-slate-900">Humidade: {{ humidity }} %</p>
       </div>
       <div class="flex items-center w-1/2 h-24">
-        <font-awesome-icon icon="fa-solid fa-wind" class="pr-4" />
-        <p class="text-slate-900">Vento: {{ wind }} Km/h</p>
+        <div>
+          <font-awesome-icon icon="fa-solid fa-wind" class="pr-4" />
+        </div>
+        <div>
+          <p class="text-slate-900">Vento: {{ wind }} Km/h</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div v-if="errorModal" class="modal">
+    <div class="modal-content">
+      <div>
+        <p>{{ errorMessage }}</p>
+      </div>
+      <div>
+        <span class="close" @click="errorModal = false">&times;</span>
       </div>
     </div>
   </div>
@@ -50,12 +72,14 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      city: 'Digite a cidade',
+      city: '',
       temperature: 0,
       weather: 'Desconhecido',
       humidity: 0,
       wind: 0,
       api: '',
+      errorModal: false,
+      errorMessage: '',
     };
   },
   methods: {
@@ -71,9 +95,14 @@ export default {
         this.humidity = weatherData.main.humidity;
         this.wind = weatherData.wind.speed;
       } catch (error) {
+        this.errorMessage = 'Erro ao buscar dados meteorológicos';
+        this.errorModal = true;
+      }
+    },
         console.error('Erro ao buscar dados meteorológicos:', error);
       }
     },
+
     translateWeatherDescription(description) {
       const translations = {
         'clear sky': 'Céu limpo',
@@ -93,3 +122,30 @@ export default {
   },
 };
 </script>
+<style>
+.modal {
+  background: red;
+  color: white;
+  text-align: center;
+  border-radius: 12px;
+  margin-top: 12px;
+  padding: 10px;
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.close {
+  cursor: pointer;
+  background: white;
+  color: red;
+  border-radius: 50%;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+}
+</style>
+
